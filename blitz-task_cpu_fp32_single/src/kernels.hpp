@@ -24,8 +24,8 @@ namespace cpu_fp_single {
 /// (flops/s = retval / elapsed seconds).
 using OpsKernel = std::uint64_t (*)(std::uint64_t iters);
 
-#if BLITZBENCH_ARCH_X86
 std::uint64_t fp32_scalar(std::uint64_t iters);
+#if BLITZBENCH_ARCH_X86
 std::uint64_t fp32_sse3(std::uint64_t iters);
 std::uint64_t fp32_sse4(std::uint64_t iters);
 std::uint64_t fp32_avx(std::uint64_t iters);

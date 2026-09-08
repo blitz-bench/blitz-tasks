@@ -98,7 +98,7 @@ inline std::uint32_t windows_line_bytes() {
 
 inline std::size_t detect_llc_bytes() {
   std::size_t bytes = 0;
-#if defined(__linux__)
+#if defined(__linux__) && defined(_SC_LEVEL4_CACHE_SIZE) && defined(_SC_LEVEL3_CACHE_SIZE) && defined(_SC_LEVEL2_CACHE_SIZE)
   for (int name : {_SC_LEVEL4_CACHE_SIZE, _SC_LEVEL3_CACHE_SIZE, _SC_LEVEL2_CACHE_SIZE}) {
     long v = ::sysconf(name);
     if (v > 0) {
@@ -121,7 +121,7 @@ inline std::size_t detect_llc_bytes() {
 
 inline std::uint32_t detect_line_bytes() {
   std::uint32_t line = 0;
-#if defined(__linux__)
+#if defined(__linux__) && defined(_SC_LEVEL1_DCACHE_LINESIZE)
   long v = ::sysconf(_SC_LEVEL1_DCACHE_LINESIZE);
   if (v > 0) line = static_cast<std::uint32_t>(v);
 #elif defined(__APPLE__)

@@ -28,11 +28,11 @@ namespace cpu_int_single {
 /// (ops/s = retval / elapsed seconds).
 using OpsKernel = std::uint64_t (*)(std::uint64_t iters);
 
-#if BLITZBENCH_ARCH_X86
 std::uint64_t i16_scalar(std::uint64_t iters);
 std::uint64_t i32_scalar(std::uint64_t iters);
 std::uint64_t i64_scalar(std::uint64_t iters);
 
+#if BLITZBENCH_ARCH_X86
 std::uint64_t i16_sse3(std::uint64_t iters);
 std::uint64_t i32_sse3(std::uint64_t iters);
 std::uint64_t i64_sse3(std::uint64_t iters);

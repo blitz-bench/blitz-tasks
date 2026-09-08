@@ -28,11 +28,11 @@ namespace cpu_int_multi {
 /// (ops/s = retval / elapsed seconds).
 using OpsKernel = std::uint64_t (*)(std::uint64_t iters);
 
-#if BLITZBENCH_ARCH_X86
 std::uint64_t i16_scalar(std::uint64_t iters);
 std::uint64_t i32_scalar(std::uint64_t iters);
 std::uint64_t i64_scalar(std::uint64_t iters);
 
+#if BLITZBENCH_ARCH_X86
 std::uint64_t i16_sse3(std::uint64_t iters);
 std::uint64_t i32_sse3(std::uint64_t iters);
 std::uint64_t i64_sse3(std::uint64_t iters);
@@ -49,8 +49,6 @@ std::uint64_t i16_avx2(std::uint64_t iters);
 std::uint64_t i32_avx2(std::uint64_t iters);
 std::uint64_t i64_avx2(std::uint64_t iters);
 
-// i16_avx512 needs AVX512BW (its TU is built with -mavx512f -mavx512bw, see CMakeLists.txt); dispatch it only when
-// cpu_features().avx512bw is set.
 std::uint64_t i16_avx512(std::uint64_t iters);
 std::uint64_t i32_avx512(std::uint64_t iters);
 std::uint64_t i64_avx512(std::uint64_t iters);

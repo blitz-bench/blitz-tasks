@@ -22,8 +22,8 @@ constexpr double TARGET_CALL_MS = 25.0;
 
 bench::Dispatched<OpsKernel> kernel_table() {
     bench::Dispatched<OpsKernel> t;
-#if BLITZBENCH_ARCH_X86
     t.scalar = &fp32_scalar;
+#if BLITZBENCH_ARCH_X86
     t.sse3 = &fp32_sse3;
     t.sse41 = &fp32_sse4;
     t.avx = &fp32_avx;
