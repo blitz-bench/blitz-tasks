@@ -1,0 +1,65 @@
+{
+  "id": "task_cpu_real_world_zstd",
+  "name": "cpu_zstd",
+  "component": "cpu",
+  "benchmark_type": "real_world",
+  "license": {
+    "spdx": "LicenseRef-BlitzBench-Source-Available",
+    "file": "LICENSES/LicenseRef-BlitzBench-Source-Available.txt",
+    "notes": "Task source stays source-available; Zstandard is BSD-3-Clause (permissive), so linking it imposes no copyleft."
+  },
+  "libraries": [
+    {
+      "name": "zstd",
+      "homepage": "https://github.com/facebook/zstd",
+      "source": "https://github.com/facebook/zstd",
+      "version": "1.5.6",
+      "license": "BSD-3-Clause",
+      "license_file": "third_party/licenses/zstd/LICENSE",
+      "role": "workload",
+      "usage": "Compresses the bundled corpus in fixed-size blocks with single-shot ZSTD_compressCCtx calls at the default level; the multi-threaded compression loop is the measured workload.",
+      "notes": "Built as a static library from the pinned submodule; no source modifications."
+    },
+    {
+      "name": "Moby-Dick (Project Gutenberg #2701)",
+      "homepage": "https://www.gutenberg.org/ebooks/2701",
+      "source": "https://www.gutenberg.org/cache/epub/2701/pg2701.txt",
+      "version": "1851",
+      "license": "CC0-1.0",
+      "license_file": "third_party/licenses/moby-dick/LICENSE",
+      "role": "workload",
+      "usage": "The bundled public-domain prose (assets/corpus.txt) that the benchmark compresses; it is the input the measured compression loop runs over.",
+      "notes": "Project Gutenberg header/footer stripped and line endings normalized to LF; only the public-domain work text is redistributed."
+    }
+  ],
+  "title": "Data compression",
+  "short_description": "Zstandard compression throughput over a bundled data corpus on all cores.",
+  "structured_text": {
+    "description": "Compresses a bundled, representative data corpus with the Zstandard encoder at a fixed compression level, running across all cores. The corpus, level and block size are identical on every machine so the result depends only on the processor. Compression is chosen over decompression because it is the sustained, compute-heavy side that real archiving, package management and storage pipelines wait on.",
+    "metric_explanation": "The score is the sustained compression throughput measured over the input, reported in gigabytes per second of data processed.",
+    "value_interpretation": "Higher is better. More gigabytes per second means faster archiving, faster package and build-artifact handling, and less time spent compressing backups and network payloads.",
+    "reasoning": "Compression sits in the hot path of software builds, backups, databases, storage and network transfer, which makes it one of the most broadly relevant real-world CPU workloads and a natural counterpart to the crypto and encode tasks."
+  },
+  "metric": { "id": "metric_bandwidth", "name": "bandwidth", "unit": "GB/s", "direction": "higher_is_better" },
+  "baselines": [
+    { "machine_type": "any",      "value": 4.0 },
+    { "machine_type": "desktop",  "value": 8.0 },
+    { "machine_type": "notebook", "value": 3.5 },
+    { "machine_type": "mobile",   "value": 1.5 }
+  ],
+  "weights": {
+    "domain_gaming":               { "weight": 0.4, "explanation": "Game asset packages and save data are compressed and unpacked constantly." },
+    "domain_office":               { "weight": 0.3, "explanation": "Office archives and document bundles are routinely zipped and unzipped." },
+    "domain_software_development":  { "weight": 0.6, "explanation": "Package managers, version control, build caches and CI artifacts lean heavily on fast compression." },
+    "domain_graphics_design":       { "weight": 0.2, "explanation": "Layered project files and asset libraries are stored compressed." },
+    "domain_video_editing":         { "weight": 0.2, "explanation": "Project bundles and proxy caches are packed with general-purpose compression." },
+    "domain_3d_rendering":          { "weight": 0.2, "explanation": "Scene and cache files are compressed when written to disk." },
+    "domain_audio_production":      { "weight": 0.2, "explanation": "Session bundles and sample libraries are stored in compressed archives." },
+    "domain_cad_engineering":       { "weight": 0.3, "explanation": "Large model and mesh files are compressed for storage and exchange." },
+    "domain_scientific_computing":  { "weight": 0.4, "explanation": "Simulation output and datasets are compressed to fit storage and speed transfer." },
+    "domain_ai_training":           { "weight": 0.5, "explanation": "Dataset shards and checkpoints are compressed on write and decompressed by the data loader." },
+    "domain_ai_inference":          { "weight": 0.2, "explanation": "Model files and payloads are shipped compressed." },
+    "domain_data_science":          { "weight": 0.6, "explanation": "Columnar formats like Parquet and ORC compress blocks with codecs like Zstandard by default." },
+    "domain_server_virt":           { "weight": 0.7, "explanation": "Backups, log storage, database pages and network payloads are compressed continuously on servers." }
+  }
+}

@@ -42,13 +42,9 @@ directory.
 Most tasks need only the language toolchain (cargo, or CMake ≥ 3.20 + a C++17
 compiler). A few link a third-party workload library and need more:
 
-- **`cpu_video_encode`** links the x264 encoder (GPL) and bundles a clip via
-  Git LFS. It needs the `external/x264` submodule plus a POSIX shell, GNU make,
-  and nasm to build x264. On Linux/macOS the system compiler is used; on Windows
-  x264 is built with `clang-cl` (MSVC ABI) so it links into the MSVC task — no
-  MinGW required. See
-  [`blitz-task_cpu_video_encode/README.md`](blitz-task_cpu_video_encode/README.md)
-  for the full dependency list, the build lanes, and a Windows install checklist.
+- **`cpu_zstd`** links the Zstandard compressor (BSD-3-Clause) from the
+  `external/zstd` submodule. zstd ships a first-class CMake build, so no extra
+  tooling is needed beyond the normal C++ toolchain.
 
 - **`cpu_crypto_{aes,sha,chacha,sign}`** link OpenSSL (`libcrypto`, Apache-2.0) for
   hardware-accelerated crypto, pinned to 3.5.5 via `common/cpp/cmake/BuildOpenSSL.cmake`.
@@ -93,9 +89,8 @@ every `TASK.json` carries licensing metadata:
 
   ```json
   "license": {
-    "spdx": "GPL-2.0-or-later",
-    "file": "LICENSES/GPL-2.0-or-later.txt",
-    "notes": "GPL because the task links the x264 encoder, which is GPL-licensed."
+    "spdx": "LicenseRef-BlitzBench-Source-Available",
+    "file": "LICENSES/LicenseRef-BlitzBench-Source-Available.txt"
   }
   ```
 
@@ -105,21 +100,21 @@ every `TASK.json` carries licensing metadata:
 
 - **`libraries`** (optional) — the third-party libraries whose code the task
   actually exercises. Real-world tasks deliberately build on real production
-  software (FFmpeg/x264, OpenCV, ONNX Runtime, clang, …) so scores reflect
-  software people actually run. One entry per library:
+  software (zstd, OpenSSL, OpenCV, ONNX Runtime, …) so scores reflect software
+  people actually run. One entry per library:
 
   ```json
   "libraries": [
     {
-      "name": "x264",
-      "homepage": "https://www.videolan.org/developers/x264.html",
-      "source": "https://code.videolan.org/videolan/x264",
-      "version": "0.164",
-      "license": "GPL-2.0-or-later",
-      "license_file": "third_party/licenses/x264/COPYING",
+      "name": "zstd",
+      "homepage": "https://github.com/facebook/zstd",
+      "source": "https://github.com/facebook/zstd",
+      "version": "1.5.6",
+      "license": "BSD-3-Clause",
+      "license_file": "third_party/licenses/zstd/LICENSE",
       "role": "workload",
-      "usage": "Encodes the bundled 1080p clip to H.264; the encode loop is the measured workload.",
-      "notes": "Built as a static library with default settings; no source modifications."
+      "usage": "Compresses the bundled corpus at a fixed level; the compression loop is the measured workload.",
+      "notes": "Built as a static library from the pinned submodule; no source modifications."
     }
   ]
   ```
@@ -146,7 +141,8 @@ This repository is **source-available with per-task licensing** — it is not
 open source as a whole. The default license
 (`LICENSES/LicenseRef-BlitzBench-Source-Available.txt`) permits viewing and
 local evaluation only; any other use requires explicit written approval.
-Individual tasks may carry open-source licenses (e.g. GPL for FFmpeg/x264-based
-tasks) as declared in their `TASK.json`. See `LICENSE` for the model,
+Individual tasks may carry a different license (e.g. one dictated by a
+copyleft workload library they link) as declared in their `TASK.json`. See
+`LICENSE` for the model,
 `LICENSING.md` for the generated per-task summary, and
 `THIRD_PARTY_NOTICES.md` for third-party attributions.

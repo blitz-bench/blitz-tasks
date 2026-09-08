@@ -16,16 +16,14 @@ third-party attributions.
 | `blitz-task_cpu_crypto_chacha` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | OpenSSL (`Apache-2.0`) |
 | `blitz-task_cpu_crypto_sha` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | OpenSSL (`Apache-2.0`) |
 | `blitz-task_cpu_crypto_sign` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | OpenSSL (`Apache-2.0`) |
-| `blitz-task_cpu_dataframe` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_fp32_multi` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_fp32_single` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_hpc_fft` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_int32_multi` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_int32_single` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_llm_infer` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
-| `blitz-task_cpu_office_docs` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_cpu_raytrace` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
-| `blitz-task_cpu_video_encode` | [`GPL-2.0-or-later`](LICENSES/GPL-2.0-or-later.txt) | x264 (`GPL-2.0-or-later`), Video Codec Test: tractor (1080p25) (`CC0-1.0`) |
+| `blitz-task_cpu_zstd` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | zstd (`BSD-3-Clause`), Moby-Dick (Project Gutenberg #2701) (`CC0-1.0`) |
 | `blitz-task_demo_c` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_demo_cpp` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_demo_rust` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
@@ -36,8 +34,6 @@ third-party attributions.
 | `blitz-task_disk_seq_read` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_disk_seq_write` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_gpu_ai_train` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
-| `blitz-task_gpu_conv2d` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
-| `blitz-task_gpu_conv3d` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_gpu_diffusion` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_gpu_fillrate` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_gpu_fp16` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
@@ -58,5 +54,4 @@ third-party attributions.
 | `blitz-task_ram_bw_copy` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_ram_bw_read` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_ram_bw_write` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
-| `blitz-task_ram_inmem_analytics` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |
 | `blitz-task_ram_latency` | [`LicenseRef-BlitzBench-Source-Available`](LICENSES/LicenseRef-BlitzBench-Source-Available.txt) | — |

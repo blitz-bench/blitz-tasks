@@ -1,0 +1,17 @@
+Bundled text corpus: "Moby-Dick; or, The Whale"
+Author:   Herman Melville
+Source:   Project Gutenberg eBook #2701 (https://www.gutenberg.org/ebooks/2701)
+Obtained: https://www.gutenberg.org/cache/epub/2701/pg2701.txt
+License:  Public domain. The work was first published in 1851 and its copyright
+          has long expired; it is in the public domain worldwide. It is tagged
+          with the SPDX identifier CC0-1.0, the standard public-domain-equivalent
+          id, for tooling purposes; the work is public domain by expiry rather
+          than by a rights-holder's CC0 dedication.
+
+The repository asset blitz-task_cpu_zstd/assets/corpus.txt is the plain-text
+body of the work only. The Project Gutenberg header and footer (which carry the
+Project Gutenberg trademark and license terms for the packaged edition) have
+been removed, so nothing but the public-domain text is redistributed. Line
+endings are normalized to LF so the corpus is byte-identical on every platform.
+
+No warranty of any kind is expressed or implied for the public-domain text.
